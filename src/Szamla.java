@@ -11,4 +11,28 @@ public class Szamla {
         this.datum = datum;
         this.osszeg = osszeg;
     }
+
+    public String getRendszam() {
+        return rendszam;
+    }
+
+    public void setRendszam(String rendszam) {
+        this.rendszam = rendszam;
+    }
+
+    public LocalDateTime getDatum() {
+        return datum;
+    }
+
+    public void setDatum(LocalDateTime datum) {
+        this.datum = datum;
+    }
+
+    public double getOsszeg() {
+        return osszeg;
+    }
+
+    public void setOsszeg(double osszeg) {
+        this.osszeg = osszeg;
+    }
 }

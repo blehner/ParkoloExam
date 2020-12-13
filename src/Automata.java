@@ -1,27 +1,50 @@
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Automata {
 
-    private ArrayList<Szamla> szamlatarolo = new ArrayList<>();
-    private int automataSorszama;
+    private final ArrayList<Szamla> szamlatarolo = new ArrayList<>();
 
-    //-----------------------------------
-
-    //todo:ellenorizni kell, hogy szukseges-e a konstruktorba a szamlatarola, ha fent ugyis megvan
-    public Automata(int automataSorszama) {
-        //this.szamlatarolo = szamlatarolo;
-        this.automataSorszama = automataSorszama;
+    public void getSzamla() {
+        System.out.println("Az AUTOMATABAN tarolt szamlak listaja: ");
+        System.out.println("------------------------------------");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        for (int i = 0; i < this.szamlatarolo.size(); i++) {
+            System.out.print("A(z)" + i + ". szamu szamla: ");
+            System.out.println(this.szamlatarolo.get(i).getDatum().format(formatter) + " " +
+                    "Rendszam: " + this.szamlatarolo.get(i).getRendszam() + " " +
+                    "Osszeg: " + this.szamlatarolo.get(i).getOsszeg());
+        }
     }
 
-    public Szamla getSzamla() {
-        // a szamla kiallitasi programkod az iratok szerint
-        return null;
+        public boolean fizetSzamla (Jarmu j, Parkolo p, NAV n){
+            LocalDateTime fromDateTime = j.getBelepesiIdo();
+            LocalDateTime toDateTime = p.getIdo();
+
+            Duration parkolasiIdo = Duration.between(fromDateTime, toDateTime);
+            long pIdo = parkolasiIdo.toHours();
+
+            if (pIdo < 1) {
+
+                //todo: fizetest allitok rajta es igy alkalmas lesz a kilepresre
+                j.setFizetve(true);
+                j.setKilepesiIdo(toDateTime);
+                return true;
+            } else if (pIdo > 1) {
+                double osszeg = j.getParkolasiOradij() * pIdo;
+                Szamla sz = new Szamla(j.getRendszam(), toDateTime, osszeg);
+                n.addSzamla(sz);
+                this.szamlatarolo.add(sz);
+                //todo:kileptets kovetkezik
+                j.setFizetve(true);
+                j.setKilepesiIdo(toDateTime);
+                return true;
+            } else {
+                //valami hiba tortent
+                return false;
+            }
+        }
+
     }
-
-    //todo: ide nem biztos, hogy kell a bool visszateresi ertek!!!
-
-    public boolean fizetSzamla(Jarmu j) {
-        return true;
-    }
-
-}

@@ -9,8 +9,8 @@ public class Parkolo {
     private int ferohelyMotor = 25;
     private int ferohelyAuto = 120;
     private int ferohelyTeherauto = 20;
-    private ArrayList<Automata> automataTarolo = new ArrayList<>();
-    private ArrayList<Jarmu> jarmuTarolo = new ArrayList<>();
+    private final ArrayList<Automata> automataTarolo = new ArrayList<>();
+    private final ArrayList<Jarmu> jarmuTarolo = new ArrayList<>();
     LocalDateTime ido;
 
     public int getFerohelyMotor() {
@@ -47,20 +47,18 @@ public class Parkolo {
 
     public Jarmu getJarmuRendszam(String rendszam) {
 
-            for (int i = 0; i < this.jarmuTarolo.size(); i++) {
-                if (this.jarmuTarolo.get(i).getRendszam().equals(rendszam.trim())) {
-                    return this.jarmuTarolo.get(i);
-                }
+        for (int i = 0; i < this.jarmuTarolo.size(); i++) {
+            if (this.jarmuTarolo.get(i).getRendszam().equals(rendszam.trim())) {
+                return this.jarmuTarolo.get(i);
             }
-            return null;
         }
-
+        return null;
+    }
 
 
     public Jarmu getJarmu(int szam) {
         return this.jarmuTarolo.get(szam);
     }
-
 
 
     //készítettem egy beolvasást tesztelve müködik!
@@ -101,8 +99,12 @@ public class Parkolo {
         return true;
     }
 
-    public boolean kilepJarmu() {
-        return true;
+    public void kilepJarmu(Jarmu j) {
+        for (int i = 0; i < jarmuTarolo.size(); i++) {
+            if (jarmuTarolo.get(i).equals(j) && j.getFizetve()) {
+                jarmuTarolo.remove(j);
+            }
+        }
     }
 
     public void hozzaadAutomata() {

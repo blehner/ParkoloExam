@@ -3,6 +3,7 @@ import sun.rmi.server.LoaderHandler;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 public class Main {
@@ -19,6 +20,26 @@ public class Main {
         System.out.println((p.getJarmuRendszam("RGG-234")).getClass());
         //itt volt a proba vissza töltés
         System.out.println("proba feltoltes");
+
+        //NAV proba
+
+        NAV n = new NAV();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime date1 = LocalDateTime.parse("2020-11-22 12:55", formatter);
+        LocalDateTime date2 = LocalDateTime.parse("2020-11-22 12:55", formatter);
+        LocalDateTime date3 = LocalDateTime.parse("2020-11-22 12:55", formatter);
+
+        Szamla sz1 = new Szamla("ABC-123", date1, 250);
+        Szamla sz2 = new Szamla("ABC-123", date2, 300);
+        Szamla sz3 = new Szamla("ABC-123", date1, 400);
+
+        n.addSzamla(sz1);
+        n.addSzamla(sz2);
+        n.addSzamla(sz3);
+
+
+
+        n.getSzamla();
     }
 }
 
