@@ -14,6 +14,8 @@ public class Main {
         System.out.println(p.getFerohelyAuto());
         System.out.println((p.getJarmu(1)).getRendszam());
         System.out.println((p.getJarmuRendszam("AAA-123")).getClass());
+        System.out.println((p.getJarmuRendszam("ABC-123")).getClass());
+        System.out.println((p.getJarmuRendszam("RGG-234")).getClass());
     }
 }
 
