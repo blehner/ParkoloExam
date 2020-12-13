@@ -17,7 +17,7 @@ public class Main {
         System.out.println((p.getJarmuRendszam("AAA-123")).getClass());
         System.out.println((p.getJarmuRendszam("CBA-321")).getClass());
         System.out.println((p.getJarmuRendszam("RGG-234")).getClass());
-        //itt volt a proba
+        //itt volt a proba vissza töltés
         System.out.println("proba feltoltes");
     }
 }
