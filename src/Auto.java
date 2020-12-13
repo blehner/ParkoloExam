@@ -17,7 +17,7 @@ public class Auto implements Jarmu {
 
     @Override
     public void setRendszam(String rendszam) {
-
+        this.rendszam = rendszam;
     }
 
     @Override

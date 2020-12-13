@@ -13,6 +13,7 @@ public class NAV {
     public ArrayList<Szamla> getSzamla(String mit) {
         ArrayList<Szamla> visszaad = new ArrayList<>();
         //if ciklussal vizsgfalom, hogy miat adok vissza es toltom az STE tombot
+        //a 'mit' valtozo meghatarozza, hogy mit kerek le
         return visszaad;
     }
 }
