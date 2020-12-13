@@ -57,7 +57,7 @@ public class Auto implements Jarmu {
 
     @Override
     public double getParkolasiOradij() {
-        return 0;
+        return this.parkolasiOradij;
     }
 
     @Override

@@ -17,7 +17,7 @@ public class Teherauto implements Jarmu {
 
     @Override
     public void setRendszam(String rendszam) {
-
+        this.rendszam = rendszam;
     }
 
     @Override

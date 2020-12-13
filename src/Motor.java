@@ -20,47 +20,47 @@ public class Motor implements Jarmu {
 
     @Override
     public void setRendszam(String rendszam) {
-
+        this.rendszam = rendszam;
     }
 
     @Override
     public String getRendszam() {
-        return null;
+        return this.rendszam;
     }
 
     @Override
     public void setBelepesiIdo(LocalDateTime belepesiIdo) {
-
+        this.belepesiIdo = belepesiIdo;
     }
 
     @Override
     public LocalDateTime getBelepesiIdo() {
-        return null;
+        return this.belepesiIdo;
     }
 
     @Override
     public void setKilepesiIdo(LocalDateTime kilepesiIdo) {
-
+        this.kilepesiIdo = kilepesiIdo;
     }
 
     @Override
     public LocalDateTime getKilepesiIdo() {
-        return null;
+        return this.kilepesiIdo;
     }
 
     @Override
     public void setFizetve(boolean fizetve) {
-
+        this.fizteve = fizetve;
     }
 
     @Override
     public boolean getFizetve() {
-        return false;
+        return this.fizteve;
     }
 
     @Override
     public double getParkolasiOradij() {
-        return 0;
+        return this.parkolasiOradij;
     }
 
     @Override
