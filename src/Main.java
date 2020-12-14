@@ -21,7 +21,7 @@ public class Main {
 
         Scanner be = new Scanner(System.in);
 
-        Boolean runs = true;
+        //Boolean runs = true;
         String szoveg;
 
         String tipus;
@@ -29,7 +29,7 @@ public class Main {
         String idopont;
         short valasz;
 
-        while (runs) {
+        while (true) {
 
             System.out.println("----------------FOMENU--------------------");
             System.out.println("1. Ugyfelmenu");
