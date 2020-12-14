@@ -13,7 +13,7 @@ public class NAV {
 
     public void getSzamla() {
         System.out.println("Az osszes NAV-nak bekuldott szamla listaja: ");
-        System.out.println("------------------------------------");
+        System.out.println("--------------------------------------------" + "\t");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         for (int i = 0; i < this.navSzamlatarolo.size(); i++) {
             System.out.print("A(z)" + i + ". szamu szamla: ");

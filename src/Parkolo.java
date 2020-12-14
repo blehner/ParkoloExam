@@ -1,9 +1,6 @@
-import sun.security.krb5.internal.crypto.Aes128;
-
 import java.io.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Parkolo {
     private int ferohelyMotor = 25;
@@ -11,7 +8,19 @@ public class Parkolo {
     private int ferohelyTeherauto = 20;
     private final ArrayList<Automata> automataTarolo = new ArrayList<>();
     private final ArrayList<Jarmu> jarmuTarolo = new ArrayList<>();
-    LocalDateTime ido;
+    LocalDateTime ido = LocalDateTime.now();
+
+    public void parkoloJarmuvekListaja() {
+        for (int i = 0; i < this.jarmuTarolo.size(); i++) {
+            System.out.print(this.jarmuTarolo.get(i).getRendszam() + "\t");
+            System.out.print(this.jarmuTarolo.get(i).getBelepesiIdo() + "\t");
+            if (this.jarmuTarolo.get(i).getFizetve()) {
+                System.out.println("Rendezte a szamlajat");
+            } else {
+                System.out.println("Meg nem fizetett");
+            }
+        }
+    }
 
     public int getFerohelyMotor() {
         return ferohelyMotor;
@@ -26,7 +35,7 @@ public class Parkolo {
     }
 
     public void setFerohelyAuto(int ferohelyAuto) {
-        this.ferohelyAuto = ferohelyAuto;
+        this.ferohelyAuto += ferohelyAuto;
     }
 
     public int getFerohelyTeherauto() {
@@ -56,8 +65,13 @@ public class Parkolo {
     }
 
 
-    public Jarmu getJarmu(int szam) {
-        return this.jarmuTarolo.get(szam);
+    public Jarmu getJarmu(String rendszam) {
+        for (int i = 0; i < this.jarmuTarolo.size(); i++) {
+            if (this.jarmuTarolo.get(i).getRendszam().equals(rendszam)) {
+                return jarmuTarolo.get(i);
+            }
+        }
+        return null;
     }
 
 
@@ -95,8 +109,16 @@ public class Parkolo {
         }
     }
 
-    public boolean belepJarmu() {
-        return true;
+    public void belepJarmu(Jarmu j) {
+        this.jarmuTarolo.add(j);
+        if (j instanceof Auto) {
+            this.ferohelyAuto--;
+        } else if (j instanceof Teherauto) {
+            this.ferohelyTeherauto--;
+        } else if (j instanceof Motor) {
+            ferohelyMotor--;
+        }
+        System.out.println("Udvozoljuk a parkoloban!");
     }
 
     public void kilepJarmu(Jarmu j) {
@@ -105,13 +127,21 @@ public class Parkolo {
                 jarmuTarolo.remove(j);
             }
         }
+        if (j instanceof Auto) {
+            this.ferohelyAuto++;
+        } else if (j instanceof Teherauto) {
+            this.ferohelyTeherauto++;
+        } else if (j instanceof Motor) {
+            ferohelyMotor++;
+        }
+        System.out.println("A viszont latasra legkozelebb!");
     }
 
-    public void hozzaadAutomata() {
-
+    public void hozzaadAutomata(Automata a) {
+        this.automataTarolo.add(a);
     }
 
-    public void kiveszAutomata() {
-
+    public void kiveszAutomata(Automata a) {
+        this.automataTarolo.add(a);
     }
 }

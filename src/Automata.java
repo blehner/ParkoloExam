@@ -19,10 +19,10 @@ public class Automata {
         }
     }
 
-        public boolean fizetSzamla (Jarmu j, Parkolo p, NAV n){
-            LocalDateTime fromDateTime = j.getBelepesiIdo();
-            LocalDateTime toDateTime = p.getIdo();
-
+    public boolean fizetSzamla(Jarmu j, Parkolo p, NAV n) {
+        LocalDateTime fromDateTime = j.getBelepesiIdo();
+        LocalDateTime toDateTime = p.getIdo();
+        if (!j.getFizetve()) {
             Duration parkolasiIdo = Duration.between(fromDateTime, toDateTime);
             long pIdo = parkolasiIdo.toHours();
 
@@ -45,6 +45,9 @@ public class Automata {
                 //valami hiba tortent
                 return false;
             }
+        } else {
+            System.out.println("On mar kifizette a szamlajat!");
+            return false;
         }
-
     }
+}
