@@ -28,7 +28,7 @@ public class Automata {
 
             if (pIdo < 1) {
 
-                //todo: fizetest allitok rajta es igy alkalmas lesz a kilepresre
+                //fizetest allitok rajta es igy alkalmas lesz a kilepresre
                 j.setFizetve(true);
                 j.setKilepesiIdo(toDateTime);
                 return true;
@@ -37,7 +37,7 @@ public class Automata {
                 Szamla sz = new Szamla(j.getRendszam(), toDateTime, osszeg);
                 n.addSzamla(sz);
                 this.szamlatarolo.add(sz);
-                //todo:kileptets kovetkezik
+                //kileptets kovetkezik
                 j.setFizetve(true);
                 j.setKilepesiIdo(toDateTime);
                 return true;

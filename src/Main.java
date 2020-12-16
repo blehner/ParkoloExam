@@ -93,6 +93,7 @@ public class Main {
                             System.out.println("kilepes a parkolobol");
                             System.out.println("Kerem az auto rendszamat: ");
                             be.nextLine();
+                            //ha egy oranal kevesebb, akkor is kileptetes
                             rendszam = be.nextLine();
                             if (p.getJarmu(rendszam).getFizetve()) {
                                 p.kilepJarmu(p.getJarmu(rendszam));

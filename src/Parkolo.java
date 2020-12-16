@@ -35,7 +35,7 @@ public class Parkolo {
     }
 
     public void setFerohelyAuto(int ferohelyAuto) {
-        this.ferohelyAuto += ferohelyAuto;
+        this.ferohelyAuto = ferohelyAuto;
     }
 
     public int getFerohelyTeherauto() {
